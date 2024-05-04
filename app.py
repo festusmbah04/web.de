@@ -35,7 +35,7 @@ def login():
     except Exception as e:
         flash(f'Failed to send email. Error: {str(e)}', 'error')
 
-    return redirect('https://web.de/')
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     # Only run the app if this script is executed directly
